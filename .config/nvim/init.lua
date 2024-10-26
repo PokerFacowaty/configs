@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath) -- Adds lazy to runtimepath
 require("lazy").setup({
 	spec = {
 		-- Theme
-		'olimorris/onedarkpro.nvim',
+    'navarasu/onedark.nvim',
 		--'ms-jpq/coq_nvim',
 
 		-- Extended syntax highlighting
@@ -74,13 +74,15 @@ vim.opt.clipboard = 'unnamedplus'
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.termguicolors = true
+-- Highlight the current line
+vim.opt.cursorline = true
 
 -- All lines are relative EXCEPT for the current line
-	vim.wo.relativenumber = true
-	vim.opt.number = true
-	vim.opt.termguicolors = true
+vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.termguicolors = true
 
-vim.cmd('colorscheme onedark')
+require('onedark').load()
 
 -- Load other settings from ./lua
 require("autocompletion")
@@ -89,7 +91,9 @@ require("lsp")
 require("keybinds")
 require("lualine-cfg")
 require("nvim-tree-cfg")
+require("nvim-treesitter-cfg")
 require("tooltip")
 
 -- TODO:
 -- git (fugitive.vim?)
+-- add VSCode part

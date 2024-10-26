@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="$HOME/Apps:$HOME/Scripts:$HOME/.local/bin:/usr/local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$HOME/Apps:$HOME/Scripts:$HOME/.local/bin:/usr/local/go/bin:$PATH"
 
 # This is to allow custom/ to be a symlink
 export ZSH_DISABLE_COMPFIX='true'

@@ -92,8 +92,5 @@ require("keybinds")
 require("lualine-cfg")
 require("nvim-tree-cfg")
 require("nvim-treesitter-cfg")
-require("tooltip")
+-- require("tooltip")
 
--- TODO:
--- git (fugitive.vim?)
--- add VSCode part

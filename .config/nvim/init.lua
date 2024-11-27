@@ -45,7 +45,8 @@ require("lazy").setup({
     -- and icons for it
     'nvim-tree/nvim-web-devicons',
     'nvim-tree/nvim-tree.lua',
-    'numToStr/Comment.nvim'
+    'numToStr/Comment.nvim',
+    {'windwp/nvim-autopairs', event = "InsertEnter", config = true}
 	},
 })
 

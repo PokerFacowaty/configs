@@ -46,7 +46,10 @@ require("lazy").setup({
     'nvim-tree/nvim-web-devicons',
     'nvim-tree/nvim-tree.lua',
     'numToStr/Comment.nvim',
-    {'windwp/nvim-autopairs', event = "InsertEnter", config = true}
+    {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
+    -- Install ripgrep for live_grep to work
+    {'nvim-telescope/telescope.nvim', branch = '0.1.x',
+     dependencies = { 'nvim-lua/plenary.nvim' }}
 	},
 })
 

@@ -1,5 +1,6 @@
 local treeApi = require("nvim-tree.api")
 local commentApi = require("Comment.api")
+local telescope = require("telescope.builtin")
 
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
@@ -8,6 +9,9 @@ local function map(mode, lhs, rhs, opts)
   end
   vim.keymap.set(mode, lhs, rhs, options)
 end
+
+-- <leader> is Space in Normal mode
+vim.g.mapleader = " "
 
 -- nvim-tree
 map("n", "<C-k>e", treeApi.tree.toggle)
@@ -33,3 +37,8 @@ map("t", "<C-h>", "<cmd>wincmd h<CR>")
 map("t", "<C-j>", "<cmd>wincmd j<CR>")
 map("t", "<C-k>", "<cmd>wincmd k<CR>")
 map("t", "<C-l>", "<cmd>wincmd l<CR>")
+
+-- Telescope
+map('n', '<leader>ff', telescope.find_files, { desc = 'Telescope find files' })
+map('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
+map('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })

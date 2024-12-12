@@ -36,6 +36,9 @@ lspconfig.docker_compose_language_service.setup{}
 -- npm install -g dockerfile-language-server-nodejs
 lspconfig.dockerls.setup{}
 
+-- npm install -g vscode-langservers-extracted
+lspconfig.eslint.setup{}
+
 -- go install golang.org/x/tools/gopls@latest
 lspconfig.gopls.setup{}
 

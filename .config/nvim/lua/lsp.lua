@@ -53,9 +53,22 @@ lspconfig.lua_ls.setup{
   }
 }
 
--- pip install "python-lsp-server[all]"
+-- pip(x) install "python-lsp-server[all]" (highly recommended)
 -- apt install python3-pylsp and all suggested packages on Debian
-lspconfig.pylsp.setup{}
+lspconfig.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          enabled = true
+        },
+        flake8 = {
+          enabled = true
+        }
+      }
+    }
+  }
+}
 
 -- npm install -g typescript typescript-language-server
 lspconfig.ts_ls.setup{}

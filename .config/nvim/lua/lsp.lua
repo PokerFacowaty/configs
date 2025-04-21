@@ -12,38 +12,39 @@ end
 lsp_zero.extend_lspconfig({
 	sign_text = true,
 	lsp_attach = lsp_attach,
-	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
 local lspconfig = require('lspconfig')
+
+local coq = require('coq')
 
 -- Language servers
 -- to be found here: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 -- npm i -g bash-language-server
-lspconfig.bashls.setup{}
+lspconfig.bashls.setup(coq.lsp_ensure_capabilities({}))
 
 -- clangd needs to be installed and in PATH
-lspconfig.clangd.setup{}
+lspconfig.clangd.setup(coq.lsp_ensure_capabilities({}))
 
 -- pip install django-template-lsp
 -- (pipx) if the system doesn't like global packages
-lspconfig.djlsp.setup{}
+lspconfig.djlsp.setup(coq.lsp_ensure_capabilities({}))
 
 -- npm install @microsoft/compose-language-service
-lspconfig.docker_compose_language_service.setup{}
+lspconfig.docker_compose_language_service.setup(coq.lsp_ensure_capabilities({}))
 
 -- npm install -g dockerfile-language-server-nodejs
-lspconfig.dockerls.setup{}
+lspconfig.dockerls.setup(coq.lsp_ensure_capabilities({}))
 
 -- npm install -g vscode-langservers-extracted
-lspconfig.eslint.setup{}
+lspconfig.eslint.setup(coq.lsp_ensure_capabilities({}))
 
 -- go install golang.org/x/tools/gopls@latest
-lspconfig.gopls.setup{}
+lspconfig.gopls.setup(coq.lsp_ensure_capabilities({}))
 
 -- https://github.com/LuaLS/lua-language-server/releases/latest
-lspconfig.lua_ls.setup{
+lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities{
   settings = {
     Lua = {
       diagnostics = {
@@ -51,11 +52,11 @@ lspconfig.lua_ls.setup{
       }
     }
   }
-}
+})
 
 -- pip(x) install "python-lsp-server[all]" (highly recommended)
 -- apt install python3-pylsp and all suggested packages on Debian
-lspconfig.pylsp.setup{
+lspconfig.pylsp.setup(coq.lsp_ensure_capabilities{
   settings = {
     pylsp = {
       plugins = {
@@ -68,7 +69,7 @@ lspconfig.pylsp.setup{
       }
     }
   }
-}
+})
 
 -- npm install -g typescript typescript-language-server
-lspconfig.ts_ls.setup{}
+lspconfig.ts_ls.setup(coq.lsp_ensure_capabilities{})

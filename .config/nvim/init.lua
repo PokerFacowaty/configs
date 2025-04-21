@@ -18,6 +18,10 @@ end
 
 vim.opt.rtp:prepend(lazypath) -- Adds lazy to runtimepath
 
+-- Loading coq_nvim global settings before it loads
+require("autocompletion")
+
+
 require("lazy").setup({
 	spec = {
 		-- Theme
@@ -36,9 +40,16 @@ require("lazy").setup({
 		-- Trying this for now, later maybe trying coq as the interface?
 		{'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
 		-- Built in neovim LSP
+    {
 		'neovim/nvim-lspconfig',
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/nvim-cmp',
+      lazy = false, -- telling lazy to start this at startup
+      dependencies = {
+        {"ms-jpq/coq_nvim", branch = "coq"},
+        {"ms-jpq/coq.artifacts", branch = "artifacts"},
+      }
+    },
+		-- 'hrsh7th/cmp-nvim-lsp',
+		-- 'hrsh7th/nvim-cmp',
 
     -- Status line
     'nvim-lualine/lualine.nvim',
@@ -49,9 +60,10 @@ require("lazy").setup({
     {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
     -- Install ripgrep for live_grep to work
     {'nvim-telescope/telescope.nvim', branch = '0.1.x',
-     dependencies = { 'nvim-lua/plenary.nvim' }}
+     dependencies = { 'nvim-lua/plenary.nvim' }},
 	},
 })
+
 
 -- ***
 -- General settings
@@ -89,7 +101,6 @@ vim.opt.termguicolors = true
 require('onedark').load()
 
 -- Load other settings from ./lua
-require("autocompletion")
 require("comment-cfg")
 require("lsp")
 require("keybinds")
@@ -97,4 +108,3 @@ require("lualine-cfg")
 require("nvim-tree-cfg")
 require("nvim-treesitter-cfg")
 -- require("tooltip")
-

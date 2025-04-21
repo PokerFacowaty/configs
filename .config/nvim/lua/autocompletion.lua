@@ -1,18 +1,15 @@
 -- Autocompletion config
-local cmp = require('cmp')
-cmp.setup({
-  sources = {
-  {name = 'nvim_lsp'},
-},
-  snippet = {
-    expand = function(args)
-    -- Neovim 0.10 needed to use vim.snippet
-    vim.snippet.expand(args.body)
-  end,
+
+vim.g.coq_settings = {
+  auto_start = 'shut-up',
+  keymap = {
+    pre_select = true,
+    jump_to_mark = "<c-n>"
   },
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({select = true}),
-    ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-  }),
-})
+  clients = { tabnine = { enabled = false } },
+  display = {
+    icons = { mode = "short" },
+    pum = { fast_close = false },
+    preview = { border = "single" }
+  },
+}

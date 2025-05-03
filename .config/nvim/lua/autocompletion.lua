@@ -12,4 +12,7 @@ vim.g.coq_settings = {
     pum = { fast_close = false },
     preview = { border = "single" }
   },
+  completion = {
+    skip_after = { " ", "{", "}", "[", "]", "(", ")" },
+  },
 }

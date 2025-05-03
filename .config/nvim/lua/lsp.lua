@@ -64,6 +64,9 @@ lspconfig.pylsp.setup{
         },
         flake8 = {
           enabled = true
+        },
+        mypy = {
+          enabled = true
         }
       }
     }

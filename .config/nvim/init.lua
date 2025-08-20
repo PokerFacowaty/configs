@@ -49,7 +49,8 @@ require("lazy").setup({
     {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
     -- Install ripgrep for live_grep to work
     {'nvim-telescope/telescope.nvim', branch = '0.1.x',
-     dependencies = { 'nvim-lua/plenary.nvim' }}
+     dependencies = { 'nvim-lua/plenary.nvim' }},
+    {'lewis6991/gitsigns.nvim', branch = 'main'}
 	},
 })
 

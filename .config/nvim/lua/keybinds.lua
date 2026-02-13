@@ -14,7 +14,7 @@ end
 vim.g.mapleader = " "
 
 -- nvim-tree
-map("n", "<C-k>e", treeApi.tree.toggle)
+map("n", "<leader>e", treeApi.tree.toggle)
 
 -- Comment
 map("n", "<C-_>", commentApi.toggle.linewise.current)

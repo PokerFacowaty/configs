@@ -58,6 +58,8 @@ lspconfig.lua_ls.setup{
 --
 -- pipx install mypy
 -- pipx inject python-lsp-server pylsp-mypy python-lsp-black python-lsp-isort
+--
+-- uv tool install ruff
 lspconfig.pylsp.setup{
   settings = {
     pylsp = {
@@ -81,6 +83,9 @@ lspconfig.pylsp.setup{
           enabled = true
         },
         autoflake = {
+          enabled = true
+        },
+        ruff = {
           enabled = true
         }
       }

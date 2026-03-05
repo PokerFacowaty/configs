@@ -53,19 +53,34 @@ lspconfig.lua_ls.setup{
   }
 }
 
--- pip(x) install "python-lsp-server[all]" (highly recommended)
+-- pipx install "python-lsp-server[all]" (highly recommended) OR
 -- apt install python3-pylsp and all suggested packages on Debian
+--
+-- pipx install mypy
+-- pipx inject python-lsp-server pylsp-mypy python-lsp-black python-lsp-isort
 lspconfig.pylsp.setup{
   settings = {
     pylsp = {
       plugins = {
         pycodestyle = {
-          enabled = true
+          enabled = false
         },
         flake8 = {
           enabled = true
         },
         mypy = {
+          enabled = true
+        },
+        pylint = {
+          enabled = true
+        },
+        black = {
+          enabled = true
+        },
+        isort = {
+          enabled = true
+        },
+        autoflake = {
           enabled = true
         }
       }
